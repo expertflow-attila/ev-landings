@@ -1,0 +1,88 @@
+{
+  "overview": {
+    "slug": "overview",
+    "name": "Áttekintés",
+    "role": "Index",
+    "order": 1,
+    "title": "EV-Landings — Két repo, egy út a vállalkozói AI-rendszerig",
+    "description": "Az Expert Flow két kezdő-eszköze: EV-Alap (márka tisztázás) és EV-AIOS (AI operációs rendszer). Magyar nyelven, IDE-alapon, Claude Code-dal."
+  },
+  "alap": {
+    "slug": "alap",
+    "name": "EV-Alap",
+    "role": "Kiindulópont",
+    "order": 2,
+    "tagline": "Tudd ki vagy, <em>kinek</em>, mit adsz el — mielőtt bármit építenél.",
+    "lede": "10 kérdés, 4 fázis. Magyar AI-vezetett interjú VS Code-ban, ami tisztázza az identitásodat, az ICP-det, a hangod és az ajánlatodat. A kimenet közvetlenül átemelhető az EV-AIOS-ba.",
+    "title": "EV-Alap — Márka alap kezdő magyar vállalkozóknak",
+    "description": "Brand discovery kurzus kezdő magyar vállalkozóknak. 10 kérdés, 4 fázis: Te, az ügyfeled, a hangod, az ajánlatod. Magyar nyelvű, IDE-alapon, Claude Code-dal.",
+    "repoCmd": "gh repo clone expertflow-attila/ev-alap",
+    "promptExample": "Olvasd be az alap-intake.md-t és kezdd el a /alap skillt a 4 fázis szerint",
+    "features": [
+      { "title": "4 fázis", "body": "Te, az ügyfeled, a hangod, az ajánlatod — egy kérdés egyszerre, nem workshop." },
+      { "title": "10 kérdés", "body": "Mindegyik 2-5 percben megválaszolható. Konkrét, nem absztrakt. Kezdő-barát." },
+      { "title": "Verbatim hang", "body": "A te szavaiddal dolgozik — nem leírja, beilleszti. A voice.md autentikus marad." },
+      { "title": "Generált fájlok", "body": "context/en-magam.md, icp.md, ajanlat.md, voice.md — készen áll a következő lépésre." },
+      { "title": "Handoff EV-AIOS-ba", "body": "kimenet/ev-aios-atadas.md előre kitölti a Q1 mezőt — másolod, áttöltöd, megy." },
+      { "title": "Még nincs ügyfeled?", "body": "Az interjú a „még nincs“ válaszokra is épít — nem szűr ki kezdőket." }
+    ],
+    "terminalScript": [
+      { "type": "user", "text": "Indítsd a /alap skillt", "ms": 800 },
+      { "type": "cmd",  "text": "read alap-intake.md → 4 fázis, 10 kérdés                    0.3s", "ms": 600 },
+      { "type": "cmd",  "text": "phase 1/4 — Te (Q1: eredet, Q2: munka, Q3: miért nem más)  0.4s", "ms": 700 },
+      { "type": "cmd",  "text": "phase 2/4 — Az ügyfeled (Q4-Q6: konkrét személy)            0.4s", "ms": 700 },
+      { "type": "cmd",  "text": "phase 3/4 — A hangod (Q7-Q8: verbatim minta + csatorna)     0.4s", "ms": 700 },
+      { "type": "cmd",  "text": "phase 4/4 — Az ajánlatod (Q9-Q10: csomag + trigger)         0.4s", "ms": 700 },
+      { "type": "cmd",  "text": "generate context/en-magam.md, icp.md, ajanlat.md            1.1s", "ms": 900 },
+      { "type": "cmd",  "text": "generate references/voice.md (verbatim + observed)          0.8s", "ms": 800 },
+      { "type": "cmd",  "text": "generate kimenet/ev-aios-atadas.md (handoff)                0.5s", "ms": 700 },
+      { "type": "out",  "text": "", "ms": 200 },
+      { "type": "out",  "text": "Done! 5 fájl generálva — készen áll az EV-AIOS-ra.", "ms": 400 },
+      { "type": "out",  "text": "", "ms": 100 },
+      { "type": "out",  "text": "✓ context/en-magam.md — identitás + differenciátor", "ms": 300 },
+      { "type": "out",  "text": "✓ context/icp.md — konkrét személy + probléma + bizonyíték", "ms": 300 },
+      { "type": "out",  "text": "✓ references/voice.md — verbatim hang + megfigyelt jellemzők", "ms": 300 },
+      { "type": "out",  "text": "", "ms": 100 },
+      { "type": "done", "text": "Következő lépés: klónozd az EV-AIOS-t, másold át a fájlokat.", "ms": 200 }
+    ]
+  },
+  "aios": {
+    "slug": "aios",
+    "name": "EV-AIOS",
+    "role": "AI Operációs Rendszer",
+    "order": 3,
+    "tagline": "Az AI <em>operációs rendszered</em> — egyéni vállalkozónak.",
+    "lede": "Három skill, három pillér, két keretrendszer. Minimális, használat által bővülő rendszer ami nem a 47-lépéses workflow-kban hisz — hanem a Lego-elvben: kis, cserélhető darabok.",
+    "title": "EV-AIOS — AI operációs rendszer magyar szólóvállalkozóknak",
+    "description": "Személyes AI operációs rendszer Claude Code-ra építve, magyarul. Gondolkodótárs egyedül dolgozó vállalkozóknak — heti egy automatizálás, soha nem előre.",
+    "repoCmd": "gh repo clone expertflow-attila/ev-aios",
+    "promptExample": "Olvasd be a CLAUDE.md-t és futtasd a /bevezetes skillt az ev-intake.md alapján",
+    "features": [
+      { "title": "Három skill", "body": "/bevezetes (setup), /attekintes (heti audit), /fejlesztes (heti 3Ms interjú). Több nem kell — bővítsd használat által." },
+      { "title": "Három pillér", "body": "Ügyfélszerzés, ügyfélkezelés, háttérműködés — minden hét egy pillér, egy darab." },
+      { "title": "3Ms keretrendszer", "body": "Mindset → Method → Machine — soha nem ugorható át. A Machine-re menés Mindset nélkül = hype." },
+      { "title": "Lego-elv", "body": "Kis, cserélhető darabok — nem egyetlen 47-lépéses workflow. A cserélhetőség = túlélés." },
+      { "title": "Append-only napló", "body": "decisions/naplo.md — mit döntöttél, miért. Nem felejt. A /attekintes és /fejlesztes ide ír." },
+      { "title": "Magyar nyelv natív", "body": "Tegező operátor-hang, nem fordított ChatGPT-szöveg. A CLAUDE.md fix válaszsztenderdet ad." }
+    ],
+    "terminalScript": [
+      { "type": "user", "text": "Futtasd a /bevezetes skillt", "ms": 800 },
+      { "type": "cmd",  "text": "read ev-intake.md → 7 kérdés                                0.3s", "ms": 600 },
+      { "type": "cmd",  "text": "validate Q2 verbatim sample (nem leírás, valódi szöveg)     0.4s", "ms": 700 },
+      { "type": "cmd",  "text": "synthesize context/vallalkozas.md from Q1+Q3                0.6s", "ms": 800 },
+      { "type": "cmd",  "text": "synthesize context/szemelyes.md from Q2+Q3                  0.5s", "ms": 700 },
+      { "type": "cmd",  "text": "synthesize references/voice.md from Q2 (verbatim + obs.)    0.7s", "ms": 900 },
+      { "type": "cmd",  "text": "populate kapcsolatok.md from Q4-Q7 (tools registry)         0.8s", "ms": 900 },
+      { "type": "cmd",  "text": "fill CLAUDE.md placeholders ({{Neved}}, prioritás)          0.4s", "ms": 700 },
+      { "type": "out",  "text": "", "ms": 200 },
+      { "type": "out",  "text": "Done! AIOS készen áll — 6 fájl generálva.", "ms": 400 },
+      { "type": "out",  "text": "", "ms": 100 },
+      { "type": "out",  "text": "✓ context/ — identitás, prioritások, személyes profil", "ms": 300 },
+      { "type": "out",  "text": "✓ references/voice.md — a te hangod, megfigyelt jellemzőkkel", "ms": 300 },
+      { "type": "out",  "text": "✓ kapcsolatok.md — minden eszköz regisztrálva (4 db)", "ms": 300 },
+      { "type": "out",  "text": "✓ CLAUDE.md — personalizálva, készen áll", "ms": 300 },
+      { "type": "out",  "text": "", "ms": 100 },
+      { "type": "done", "text": "Következő lépés: 7. napon /attekintes, aztán hetente /fejlesztes.", "ms": 200 }
+    ]
+  }
+}

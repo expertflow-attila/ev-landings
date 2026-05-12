@@ -1,0 +1,133 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+import products from "../data/products.json";
+
+const overview = (products as any).overview;
+const alap = (products as any).alap;
+const aios = (products as any).aios;
+---
+
+<LandingLayout
+  productSlug="overview"
+  title={overview.title}
+  description={overview.description}
+>
+
+  <section class="hero">
+    <div class="hero-eyebrow">
+      Expert Flow <span class="dot"></span> Kezdő eszközök <span class="dot"></span> v0.1.0
+    </div>
+    <h1>Két <em>repo</em> — egy út a kezdéstől a működő AI rendszerig.</h1>
+    <p class="lede">Először tisztázod, ki vagy és kinek adsz el. Aztán felépíted az operációs rendszert ami működteti a vállalkozásodat. Magyarul. VS Code-ban. Claude Code-dal.</p>
+  </section>
+
+  <div class="section-head"><span class="label-lg">Válassz</span></div>
+  <div class="g g-cards cards-wrap">
+    <a href="/alap" class="product-card" data-card="alap" aria-label="EV-Alap — Márka discovery kezdő vállalkozóknak">
+      <span class="card-num">01 · Kiindulópont</span>
+      <h2 class="card-title">EV-<em>Alap</em></h2>
+      <p class="card-lede">10 kérdés, 4 fázis. Tudd ki vagy, kinek, mit adsz el — mielőtt bármit építenél.</p>
+      <span class="card-cta">Felfedezés indítása</span>
+    </a>
+    <a href="/aios" class="product-card" data-card="aios" aria-label="EV-AIOS — AI operációs rendszer">
+      <span class="card-num">02 · AI Operációs Rendszer</span>
+      <h2 class="card-title">EV-<em>AIOS</em></h2>
+      <p class="card-lede">Három skill, három pillér, két keretrendszer. Egy minimális AIOS, ami használat által nő.</p>
+      <span class="card-cta">Operációs rendszer megnyitása</span>
+    </a>
+  </div>
+
+  <div class="section-head"><span class="label-lg">Miért ebben a sorrendben</span></div>
+  <div class="g g-feat features-wrap">
+    <article class="feat-cell">
+      <h3 class="feat-eyebrow">EV-Alap előbb</h3>
+      <p class="feat-body">Az AIOS-nak tudnia kell, ki vagy és kinek adsz el. Ha még nem világos, az AIOS context fájljai homályosak maradnak — és minden egyéb is rajtuk.</p>
+    </article>
+    <article class="feat-cell">
+      <h3 class="feat-eyebrow">EV-AIOS utána</h3>
+      <p class="feat-body">Az EV-Alap kimenetei (en-magam, icp, ajanlat, voice) közvetlenül beilleszthetők az AIOS context/ mappájába. A handoff fájl pontosan megmondja mit hova.</p>
+    </article>
+    <article class="feat-cell">
+      <h3 class="feat-eyebrow">Mindkettő ingyenes</h3>
+      <p class="feat-body">MIT license, GitHub repo, klónozd és használd. A Claude előfizetésen kívül semmi más nem kell — Pro ($20/hó) elegendő a teljes folyamatra.</p>
+    </article>
+    <article class="feat-cell">
+      <h3 class="feat-eyebrow">IDE-alapon</h3>
+      <p class="feat-body">VS Code + Claude Code. Nincs SaaS dashboard, nincs külön app. A vállalkozásod operációs rendszere a saját gépeden, saját git repó-ban él.</p>
+    </article>
+    <article class="feat-cell">
+      <h3 class="feat-eyebrow">Magyar nyelv natív</h3>
+      <p class="feat-body">Mindkét repo magyarul beszél veled alapból. Tegező operátor-hang, nem fordított angol szöveg. A CLAUDE.md fix válaszsztenderdet ad.</p>
+    </article>
+    <article class="feat-cell">
+      <h3 class="feat-eyebrow">Heti egy darab</h3>
+      <p class="feat-body">Az EV-AIOS /fejlesztes skill egy hét = egy automatizálási darab. Nem 47-lépéses workflow. Nem előre épített rendszer. Használat által nő.</p>
+    </article>
+  </div>
+
+  <div class="section-head"><span class="label-lg">Az út</span></div>
+  <div class="demo-row">
+    <div class="term-wrap">
+      <div class="term">
+        <div class="term-bar">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span class="term-title">overview</span>
+        </div>
+        <div class="term-body" style="white-space: pre-wrap;">
+{`› git clone ev-alap && cd ev-alap
+  /alap                                       # 10 kérdés, 4 fázis
+  → context/, references/voice.md generálva
+  → kimenet/ev-aios-atadas.md kész
+
+› git clone ev-aios && cd ev-aios
+  cp ../ev-alap/context/* context/
+  cp ../ev-alap/references/voice.md references/
+  /bevezetes                                  # Q1 előre kitöltve
+  → CLAUDE.md personalizálva
+  → kapcsolatok.md regisztrálva
+
+› 7. napon: /attekintes                       # Four Cs × 3 pillér audit
+› hetente: /fejlesztes                        # 3Ms interjú → 1 automatizálás
+
+Done! AIOS működik. Heti egy darab épül.`}
+        </div>
+      </div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <div class="art-letter">EV</div>
+      <div class="art-name">EXPERT FLOW</div>
+      <span class="art-label">Két repo · Egy út</span>
+    </div>
+  </div>
+
+</LandingLayout>
+
+<style>
+  .art-letter {
+    position: absolute;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(180px, 32vw, 380px);
+    line-height: 0.84;
+    color: var(--accent);
+    opacity: 0.22;
+    letter-spacing: -0.05em;
+    bottom: -14%;
+    left: -6%;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    user-select: none;
+  }
+  .art-name {
+    position: absolute;
+    top: 18px;
+    left: 22px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    color: var(--accent);
+    text-transform: uppercase;
+    opacity: 0.85;
+    mix-blend-mode: plus-lighter;
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+import productsData from "../data/products.json";
+
+const product = (productsData as any).aios;
+
+const repoId = "repo-aios";
+const promptId = "prompt-aios";
+const termJson = JSON.stringify(product.terminalScript);
+---
+
+<LandingLayout
+  productSlug="aios"
+  title={product.title}
+  description={product.description}
+>
+
+  <section class="hero">
+    <div class="hero-eyebrow">
+      Expert Flow <span class="dot"></span> EV-AIOS <span class="dot"></span> AI Operációs Rendszer
+    </div>
+    <h1 set:html={product.tagline}></h1>
+    <p class="lede">{product.lede}</p>
+
+    <div class="cta-stack">
+      <div class="cta-card">
+        <div class="cta-card-head">
+          <span class="num">1. Klónozás</span>
+          <button type="button" class="copy-btn" data-copy={`#${repoId}`}>Másol</button>
+        </div>
+        <code id={repoId} class="cta-code"><span class="hl">{product.repoCmd}</span></code>
+      </div>
+      <div class="cta-card">
+        <div class="cta-card-head">
+          <span class="num">2. Indítsd a /bevezetes-t</span>
+          <button type="button" class="copy-btn" data-copy={`#${promptId}`}>Másol</button>
+        </div>
+        <code id={promptId} class="cta-code"><span class="hl">{product.promptExample}</span></code>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-head"><span class="label-lg">Lásd működés közben</span></div>
+  <div class="demo-row">
+    <div class="term-wrap">
+      <div class="term" data-terminal data-script={termJson}>
+        <div class="term-bar">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span class="term-title">aios</span>
+        </div>
+        <div class="term-body"></div>
+      </div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <div class="art-letter">A</div>
+      <div class="art-name">EV-AIOS</div>
+      <span class="art-label">AIOS</span>
+    </div>
+  </div>
+
+  <div class="section-head"><span class="label-lg">Funkciók</span></div>
+  <div class="g g-feat features-wrap">
+    {product.features.map((f: { title: string; body: string }) => (
+      <article class="feat-cell">
+        <h3 class="feat-eyebrow">{f.title}</h3>
+        <p class="feat-body">{f.body}</p>
+      </article>
+    ))}
+  </div>
+
+  <div class="section-head"><span class="label-lg">Még nem voltál EV-Alap-on?</span></div>
+  <div class="g g-cards cards-wrap">
+    <a href="/alap" class="product-card" data-card="alap" aria-label="Vissza az EV-Alap-ra">
+      <span class="card-num">Előtte ez kell</span>
+      <h2 class="card-title">Először <em>EV-Alap</em></h2>
+      <p class="card-lede">Ha még nem tudod pontosan kit szolgálsz és mit ajánlasz, az AIOS context fájljai homályosak maradnak. 10 kérdés tisztázza az alapot.</p>
+      <span class="card-cta">Felfedezés indítása</span>
+    </a>
+    <a href="/" class="product-card" data-card="aios" aria-label="Áttekintés">
+      <span class="card-num">Áttekintés</span>
+      <h2 class="card-title">Miért így <em>épül</em></h2>
+      <p class="card-lede">Két repo, egy út. Az áttekintés megmutatja a teljes folyamatot a kezdéstől a heti automatizálási ritmusig.</p>
+      <span class="card-cta">Áttekintés megnyitása</span>
+    </a>
+  </div>
+
+</LandingLayout>
