@@ -25,14 +25,14 @@ const termJson = JSON.stringify(product.terminalScript);
     <div class="cta-stack">
       <div class="cta-card">
         <div class="cta-card-head">
-          <span class="num">1. Klónozás</span>
+          <span class="num">{product.ctaPrimary}</span>
           <button type="button" class="copy-btn" data-copy={`#${repoId}`}>Másol</button>
         </div>
         <code id={repoId} class="cta-code"><span class="hl">{product.repoCmd}</span></code>
       </div>
       <div class="cta-card">
         <div class="cta-card-head">
-          <span class="num">2. Indítsd a /bevezetes-t</span>
+          <span class="num">{product.ctaSecondary}</span>
           <button type="button" class="copy-btn" data-copy={`#${promptId}`}>Másol</button>
         </div>
         <code id={promptId} class="cta-code"><span class="hl">{product.promptExample}</span></code>
@@ -52,7 +52,7 @@ const termJson = JSON.stringify(product.terminalScript);
       </div>
     </div>
     <div class="art" aria-hidden="true">
-      <div class="art-letter">A</div>
+      <div class="art-letter">O</div>
       <div class="art-name">EV-AIOS</div>
       <span class="art-label">AIOS</span>
     </div>
@@ -76,7 +76,7 @@ const termJson = JSON.stringify(product.terminalScript);
       <p class="card-lede">Ha még nem tudod pontosan kit szolgálsz és mit ajánlasz, az AIOS context fájljai homályosak maradnak. 10 kérdés tisztázza az alapot.</p>
       <span class="card-cta">Felfedezés indítása</span>
     </a>
-    <a href="/" class="product-card" data-card="aios" aria-label="Áttekintés">
+    <a href="/" class="product-card" data-card="overview" aria-label="Áttekintés">
       <span class="card-num">Áttekintés</span>
       <h2 class="card-title">Miért így <em>épül</em></h2>
       <p class="card-lede">Két repo, egy út. Az áttekintés megmutatja a teljes folyamatot a kezdéstől a heti automatizálási ritmusig.</p>
