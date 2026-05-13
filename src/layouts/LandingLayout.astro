@@ -11,6 +11,9 @@ interface Props {
 const { productSlug, title, description } = Astro.props;
 
 const productList = Object.values(products as Record<string, any>).sort((a, b) => a.order - b.order);
+
+const siteOrigin = Astro.site?.toString().replace(/\/$/, "") ?? "https://ev-landings.vercel.app";
+const canonical = `${siteOrigin}${productSlug === "overview" ? "/" : `/${productSlug}`}`;
 ---
 <!doctype html>
 <html lang="hu" data-product={productSlug}>
@@ -22,20 +25,21 @@ const productList = Object.values(products as Record<string, any>).sort((a, b) =
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="author" content="Expert Flow" />
     <meta name="theme-color" content="#0a0a0c" />
+    <link rel="canonical" href={canonical} />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Expert Flow" />
     <meta property="og:locale" content="hu_HU" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
-    <link rel="alternate" hreflang="hu" href={`https://ev-landings.vercel.app/${productSlug === "overview" ? "" : productSlug}`} />
-    <link rel="alternate" hreflang="x-default" href={`https://ev-landings.vercel.app/${productSlug === "overview" ? "" : productSlug}`} />
-    <link rel="canonical" href={`https://ev-landings.vercel.app/${productSlug === "overview" ? "" : productSlug}`} />
+    <link rel="alternate" hreflang="hu" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
@@ -48,11 +52,9 @@ const productList = Object.values(products as Record<string, any>).sort((a, b) =
     <main id="main" class="shell">
 
       <header>
-        <div class="g g-header" style="display: grid;">
+        <div class="g g-header">
           <a href="/" class="gc gc-link" aria-label="Expert Flow — főoldal">
-            <span class="brand-logo">
-              <b>Expert</b><b>Flow</b>
-            </span>
+            <span class="brand-logo"><b>Expert</b><b>Flow</b></span>
           </a>
           <a href="https://expert-flow-agents.vercel.app" target="_blank" rel="noopener" class="gc gc-link">
             <span class="label-sm with-arrow">Ügynökök</span>
@@ -61,7 +63,7 @@ const productList = Object.values(products as Record<string, any>).sort((a, b) =
             <span class="label-sm with-arrow">GitHub</span>
           </a>
           <div class="gc">
-            <span class="label-sm">Csatornák</span>
+            <span class="label-sm">Közösség</span>
             <div class="socials-row">
               <a href="https://www.youtube.com/@attilanagy23" target="_blank" rel="noopener" aria-label="YouTube">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -71,61 +73,57 @@ const productList = Object.values(products as Record<string, any>).sort((a, b) =
               </a>
             </div>
           </div>
-          <div class="gc">
-            <span class="label-sm">Téma</span>
-            <button type="button" class="theme-toggle dark" aria-label="Téma váltás (vizuális)" data-theme-toggle>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/></svg>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-              <span class="knob"></span>
-            </button>
-          </div>
         </div>
 
         <div class="mobile-bar">
-          <a href="/" aria-label="Főoldal">
-            <span class="brand-logo" style="font-size: 26px;">
-              <b>Expert</b><b>Flow</b>
-            </span>
+          <a href="/" class="mobile-bar-brand" aria-label="Főoldal">
+            <span class="brand-logo brand-logo--sm"><b>Expert</b><b>Flow</b></span>
           </a>
-          <button type="button" class="theme-toggle dark" aria-label="Téma váltás" data-theme-toggle>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/></svg>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            <span class="knob"></span>
-          </button>
+          <nav class="mobile-nav" aria-label="Globális mobil navigáció">
+            <a href="https://expert-flow-agents.vercel.app" target="_blank" rel="noopener" aria-label="Ügynökök">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="4"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@attilanagy23" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://github.com/expertflow-attila" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </nav>
         </div>
 
-        <nav class="g g-tabs" aria-label="Termékek">
-          {productList.map((p) => (
-            <a
-              href={p.slug === "overview" ? "/" : `/${p.slug}`}
-              class={`gc gc-link gc-tab${p.slug === productSlug ? " active" : ""}`}
-              aria-current={p.slug === productSlug ? "page" : undefined}
-            >
-              <span class="tab-name">{p.name}</span>
-              <span class="tab-role">{p.role}</span>
-            </a>
-          ))}
+        <nav aria-label="Termékek">
+          <div class="g g-tabs">
+            {productList.map((p) => (
+              <a
+                href={p.slug === "overview" ? "/" : `/${p.slug}`}
+                class={`gc gc-link gc-tab${p.slug === productSlug ? " active" : ""}`}
+                aria-current={p.slug === productSlug ? "page" : undefined}
+              >
+                <span class="tab-name">{p.name}</span>
+                <span class="tab-role">{p.role}</span>
+              </a>
+            ))}
+          </div>
         </nav>
       </header>
 
       <slot />
 
-      <footer class="g g-foot foot" style="margin-top: 0;">
-        <div class="gc">
-          <span class="label-sm">EV-Landings</span>
-          <span class="label-sm accent">v0.1.0</span>
-        </div>
-        <div class="gc">
-          <a href="https://expert-flow-agents.vercel.app" target="_blank" rel="noopener" class="label-sm with-arrow">Ügynökök</a>
-        </div>
-        <div class="gc">
-          <a href="https://expertflow.hu" target="_blank" rel="noopener" class="label-sm with-arrow">expertflow.hu</a>
-        </div>
-        <div class="gc">
-          <span class="label-sm dim">© 2026 · MIT License</span>
-        </div>
-      </footer>
     </main>
+
+    <footer class="g g-foot foot">
+      <div class="gc">
+        <span class="label-sm">EV-Landings</span>
+        <span class="label-sm accent">v0.1.0</span>
+      </div>
+      <div class="gc">
+        <a href="https://expertflow.hu" target="_blank" rel="noopener" class="label-sm with-arrow">expertflow.hu</a>
+      </div>
+      <div class="gc">
+        <span class="label-sm dim">© 2026 · MIT License</span>
+      </div>
+    </footer>
 
     <script>
       // Copy buttons
@@ -147,14 +145,6 @@ const productList = Object.values(products as Record<string, any>).sort((a, b) =
           } catch (e) {
             console.error("Másolás sikertelen:", e);
           }
-        });
-      });
-
-      // Theme toggle (visual only)
-      document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          btn.classList.toggle("dark");
-          btn.classList.toggle("light");
         });
       });
 

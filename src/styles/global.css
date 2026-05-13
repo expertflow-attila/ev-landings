@@ -256,7 +256,6 @@ main.shell {
 .brand-logo b {
   font-style: normal;
   font-weight: 400;
-  display: block;
 }
 .brand-logo--sm { font-size: 26px; }
 
