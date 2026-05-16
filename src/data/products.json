@@ -5,7 +5,7 @@
     "role": "Index",
     "order": 1,
     "title": "EV-Landings — Két repo, egy út a vállalkozói AI-rendszerig",
-    "description": "Az Expert Flow két kezdő-eszköze: EV-Alap (márka tisztázás) és EV-AIOS (AI operációs rendszer). Magyar nyelven, IDE-alapon, Claude Code-dal."
+    "description": "A Solo Business két kezdő-eszköze: EV-Alap (márka tisztázás) és EV-AIOS (AI operációs rendszer). Magyar nyelven, IDE-alapon, Claude Code-dal."
   },
   "alap": {
     "slug": "alap",

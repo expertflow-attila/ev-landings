@@ -24,7 +24,7 @@
   --text-muted: #a1a1aa;
   --text-dim: #8b8b94;
 
-  /* Default accent — lavender (Expert Flow brand). Per-product override below. */
+  /* Default accent — lavender (Solo Business brand). Per-product override below. */
   --accent: #b9a7e0;
   --accent-soft: rgba(185, 167, 224, 0.10);
   --accent-strong: #cdb9eb;
@@ -48,7 +48,7 @@
   --t-slow: 360ms;
 }
 
-/* Per-product accent overrides — mind a Expert Flow lavender családban */
+/* Per-product accent overrides — mind a Solo Business lavender családban */
 [data-product="overview"] { --accent: #b9a7e0; --accent-soft: rgba(185, 167, 224, 0.10); --accent-strong: #cdb9eb; --accent-glow: rgba(185, 167, 224, 0.32); }
 [data-product="alap"]     { --accent: #d4a5b5; --accent-soft: rgba(212, 165, 181, 0.10); --accent-strong: #e0b8c5; --accent-glow: rgba(212, 165, 181, 0.32); }
 [data-product="aios"]     { --accent: #a8c8e8; --accent-soft: rgba(168, 200, 232, 0.10); --accent-strong: #bcd4ee; --accent-glow: rgba(168, 200, 232, 0.32); }
