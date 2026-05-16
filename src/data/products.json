@@ -27,7 +27,7 @@
       { "title": "Szó szerinti hang", "body": "A te szavaiddal dolgozik — nem leírja, beilleszti. A voice.md autentikus marad." },
       { "title": "Generált fájlok", "body": "context/en-magam.md, icp.md, ajanlat.md, voice.md — készen áll a következő lépésre." },
       { "title": "Átadás EV-AIOS-ba", "body": "kimenet/ev-aios-atadas.md előre kitölti a Q1 mezőt — másolod, áttöltöd, megy." },
-      { "title": "Prémium landing sablon", "body": "Ingyenes, kész HTML+CSS sablon a sablonok/landing-oldal/ mappában. Élő példa: landing-oldal.vercel.app." }
+      { "title": "Prémium landing sablon", "body": "Ingyenes, kész HTML+CSS sablon a sablonok/landing-oldal/ mappában. Élő példa: ev-alap-sablon.vercel.app." }
     ],
     "terminalScript": [
       { "type": "user", "text": "Indítsd a /alap skillt", "ms": 800 },
