@@ -4,7 +4,7 @@
    Per-product accent override [data-product="..."] HTML attribútumon.
    ───────────────────────────────────────────────────────────── */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap");
+/* Webfontok a LandingLayout <head>-ben töltődnek (non-blocking, display=swap). */
 
 :root {
   color-scheme: dark;
@@ -68,7 +68,9 @@ html, body {
   letter-spacing: -0.011em;
   line-height: 1.6;
 }
-html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 body {
   min-height: 100vh;
   min-height: 100dvh;

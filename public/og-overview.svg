@@ -7,9 +7,9 @@
   </defs>
   <rect width="1200" height="630" fill="#0a0a0c"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
-  <text x="80" y="120" font-family="JetBrains Mono, monospace" font-size="22" letter-spacing="4" fill="#a1a1aa">EXPERT FLOW · KEZDŐ ESZKÖZÖK · v0.1.0</text>
+  <text x="80" y="120" font-family="JetBrains Mono, monospace" font-size="22" letter-spacing="4" fill="#a1a1aa">SOLO BUSINESS · KEZDŐ ESZKÖZÖK · v0.1.0</text>
   <text x="80" y="280" font-family="Georgia, serif" font-style="italic" font-size="110" fill="#fafafa">Két <tspan fill="#cdb9eb">repo</tspan>.</text>
   <text x="80" y="400" font-family="Georgia, serif" font-style="italic" font-size="110" fill="#fafafa">Egy út.</text>
-  <text x="80" y="560" font-family="Inter, sans-serif" font-size="28" fill="#a1a1aa">EV-Alap (márka tisztázás) → EV-AIOS (operációs rendszer)</text>
+  <text x="80" y="560" font-family="Inter, sans-serif" font-size="28" fill="#a1a1aa">EV-Alap (márka tisztázás), majd EV-AIOS (operációs rendszer)</text>
   <text x="1120" y="600" font-family="JetBrains Mono, monospace" font-size="18" letter-spacing="3" fill="#b9a7e0" text-anchor="end">EV-LANDINGS.VERCEL.APP</text>
 </svg>
