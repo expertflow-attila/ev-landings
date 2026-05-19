@@ -1,0 +1,120 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+import productsData from "../data/products.json";
+
+const product = (productsData as any).esg;
+
+const termJson = JSON.stringify(product.terminalScript);
+
+const mailtoHref = `mailto:${product.waitlistEmail}?subject=${encodeURIComponent(
+  product.waitlistSubject
+)}&body=${encodeURIComponent(product.waitlistBody)}`;
+---
+
+<LandingLayout
+  productSlug="esg"
+  title={product.title}
+  description={product.description}
+>
+
+  <section class="hero">
+    <span class="coming-pill"><span class="pulse"></span>Hamarosan érkezik</span>
+    <div class="hero-eyebrow">
+      Solo Business <span class="dot"></span> ESG Platform <span class="dot"></span> VSME-jelentés
+    </div>
+    <h1 set:html={product.tagline}></h1>
+    <p class="lede">{product.lede}</p>
+
+    <div class="cta-stack">
+      <div class="cta-card">
+        <div class="cta-card-head">
+          <span class="num">Várólista</span>
+          <a href={mailtoHref} class="copy-btn" style="text-decoration: none;">Feliratkozás</a>
+        </div>
+        <code class="cta-code">A platform még épül. Iratkozz fel egy e-maillel, és szólunk amikor megnyílik az első kör.</code>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-head"><span class="label-lg">Mi az a VSME-platform</span></div>
+  <div class="g g-feat features-wrap">
+    <article class="feat-cell" style="grid-column: 1 / -1;">
+      <h3 class="feat-eyebrow">Kinek szól</h3>
+      <p class="feat-body">{product.what}</p>
+    </article>
+  </div>
+
+  <div class="section-head"><span class="label-lg">Miért nehéz ma</span></div>
+  <div class="g g-feat features-wrap">
+    {product.problem.map((f: { title: string; body: string }) => (
+      <article class="feat-cell">
+        <h3 class="feat-eyebrow">{f.title}</h3>
+        <p class="feat-body">{f.body}</p>
+      </article>
+    ))}
+  </div>
+
+  <div class="section-head"><span class="label-lg">Hogyan segít a platform</span></div>
+  <div class="g g-feat features-wrap">
+    {product.solution.map((f: { title: string; body: string }) => (
+      <article class="feat-cell">
+        <h3 class="feat-eyebrow">{f.title}</h3>
+        <p class="feat-body">{f.body}</p>
+      </article>
+    ))}
+  </div>
+
+  <div class="section-head"><span class="label-lg">Lásd működés közben</span></div>
+  <div class="demo-row">
+    <div class="term-wrap">
+      <div class="term" data-terminal data-script={termJson}>
+        <div class="term-bar">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span class="term-title">esg</span>
+        </div>
+        <div class="term-body"></div>
+      </div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <div class="art-letter">E</div>
+      <div class="art-name">ESG PLATFORM</div>
+      <span class="art-label">Hamarosan</span>
+    </div>
+  </div>
+
+  <div class="section-head"><span class="label-lg">Az AI-ügynök rendszer</span></div>
+  <div class="g g-feat features-wrap">
+    {product.agents.map((f: { title: string; body: string }) => (
+      <article class="feat-cell">
+        <h3 class="feat-eyebrow">{f.title}</h3>
+        <p class="feat-body">{f.body}</p>
+      </article>
+    ))}
+  </div>
+
+  <div class="section-head"><span class="label-lg">Kérj helyet a várólistán</span></div>
+  <div class="waitlist">
+    <span class="coming-pill"><span class="pulse"></span>Még nem él</span>
+    <h2 class="waitlist-title">Az első kör <em>korlátozott</em> — a feliratkozók szólnak elsőként.</h2>
+    <p class="waitlist-body">A platform fejlesztés alatt áll. Hagyd itt az e-mailed, és értesítünk amikor megnyitjuk az első kérdőív-kitöltő kört. A levél előre kitölti a vállalkozásod néhány alapadatát, hogy gyorsan jelezhesd mi a helyzeted.</p>
+    <a href={mailtoHref} class="waitlist-btn">Feliratkozom a várólistára</a>
+    <span class="waitlist-note">E-mail · hello@expertflow.hu · nincs kötelezettség</span>
+  </div>
+
+  <div class="section-head"><span class="label-lg">Amíg vársz</span></div>
+  <div class="g g-cards cards-wrap">
+    <a href="/alap" class="product-card" data-card="alap" aria-label="EV-Alap — Márkaalapozó">
+      <span class="card-num">Kezdd itt</span>
+      <h2 class="card-title">Tisztázd az <em>alapot</em></h2>
+      <p class="card-lede">Mielőtt az ESG-platform megnyílik, az EV-Alap 10 kérdéssel tisztázza ki vagy és kinek dolgozol — a jelentéshez is jól jön a pontos céges profil.</p>
+      <span class="card-cta">Felfedezés indítása</span>
+    </a>
+    <a href="/" class="product-card" data-card="overview" aria-label="Vissza az áttekintésre">
+      <span class="card-num">Áttekintés</span>
+      <h2 class="card-title">Nézd meg a <em>teljes utat</em></h2>
+      <p class="card-lede">Az áttekintés megmutatja a Solo Business eszközeit — az alaptól az AI operációs rendszerig, és most az ESG-platformig.</p>
+      <span class="card-cta">Áttekintés megnyitása</span>
+    </a>
+  </div>
+
+</LandingLayout>

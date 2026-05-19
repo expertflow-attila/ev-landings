@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="0.7">
+      <stop offset="0%" stop-color="#a3c9a8" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#a3c9a8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a0c"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <text x="80" y="120" font-family="JetBrains Mono, monospace" font-size="22" letter-spacing="4" fill="#a1a1aa">SOLO BUSINESS · ESG PLATFORM · HAMAROSAN</text>
+  <text x="80" y="280" font-family="Georgia, serif" font-style="italic" font-size="92" fill="#fafafa">A VSME-jelentésed</text>
+  <text x="80" y="380" font-family="Georgia, serif" font-style="italic" font-size="92" fill="#fafafa"><tspan fill="#b8d6bc">30 perc</tspan> alatt —</text>
+  <text x="80" y="480" font-family="Georgia, serif" font-style="italic" font-size="92" fill="#fafafa">nem három hét Excelben.</text>
+  <text x="80" y="560" font-family="Inter, sans-serif" font-size="28" fill="#a1a1aa">AI-natív ESG-platform egyéni vállalkozóknak. Várólista nyitva.</text>
+  <text x="1120" y="600" font-family="JetBrains Mono, monospace" font-size="18" letter-spacing="3" fill="#a3c9a8" text-anchor="end">EV-LANDINGS.VERCEL.APP/ESG</text>
+</svg>

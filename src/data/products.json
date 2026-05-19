@@ -90,5 +90,55 @@
       { "type": "out",  "text": "", "ms": 100 },
       { "type": "done", "text": "Következő lépés: 7. napon /attekintes, aztán hetente /fejlesztes.", "ms": 200 }
     ]
+  },
+  "esg": {
+    "slug": "esg",
+    "name": "ESG Platform",
+    "role": "Hamarosan",
+    "order": 4,
+    "tagline": "A VSME-jelentésed <em>30 perc</em> alatt — nem három hét Excelben.",
+    "lede": "AI-natív fenntarthatósági platform egyéni vállalkozóknak és kiscégeknek. Feltöltöd a vevődtől vagy a bankodtól kapott ESG-kérdőívet, a platform kitölti a céges profilod alapján, és VSME-szabványú jelentést ad vissza. Most épül — iratkozz fel a várólistára.",
+    "title": "ESG Platform — VSME-jelentés AI-val, egyéni vállalkozóknak",
+    "description": "Hamarosan érkező AI-natív ESG/VSME jelentési platform egyéni vállalkozóknak és kiscégeknek. ESG-kérdőív kitöltő asszisztens, VSME-jelentés, magyar pályázat-figyelő. Iratkozz fel a várólistára.",
+    "comingSoon": true,
+    "waitlistEmail": "hello@expertflow.hu",
+    "waitlistSubject": "Várólista — ESG Platform",
+    "waitlistBody": "Szia Attila!\n\nFel szeretnék kerülni az ESG/VSME platform várólistájára.\n\nA vállalkozásom: \nIparág / TEÁOR: \nMiért érdekel az ESG-jelentés (vevői kérés, banki hitel, VSME-kötelezettség): \n\nKöszönöm!",
+    "what": "A VSME (Voluntary SME standard) az EU önkéntes fenntarthatósági jelentési szabványa kis- és középvállalatoknak. Egyre több multinacionális vevő és bank kéri be — a platform ezt a jelentést készíti el AI-val, magyar nyelven.",
+    "problem": [
+      { "title": "A kérdőív most fáj", "body": "A vevőd vagy a bankod ESG-kérdőívet küld, a hitel vagy a szerződés ezen múlik. Senki nem érti a sablont, és Excelben próbálod megoldani hetekig." },
+      { "title": "A tanácsadó drága", "body": "Egy VSME-riport a magyar tanácsadói piacon 200 ezer forinttól több millióig terjed — egyszeri díjként, minden frissítésnél újra." },
+      { "title": "A szabvány mozog", "body": "VSME, CSRD, EFRAG, SZTFH-bírság, banki ESG-kérdőív — nehéz követni mi vonatkozik rád és mikor. Magyarul alig van használható segítség." }
+    ],
+    "solution": [
+      { "title": "Kérdőív kitöltő asszisztens", "body": "Feltöltöd a vevődtől kapott kérdőívet PDF-ben vagy Wordben. Az AI kitölti a céges profilod és az iparági benchmark alapján, magyarról angolra fordít, és ugyanabban a formátumban adja vissza." },
+      { "title": "VSME-jelentés generálás", "body": "A platform végigvezet a VSME-témaköreidön egy magyar chat-folyamban, a NAV-adataidból számol karbonlábnyomot, és EFRAG-stílusú PDF-jelentést ad ki." },
+      { "title": "Magyar pályázat-figyelő", "body": "A háttérben futó ügynök hetente átnézi a magyar zöld pályázatokat és a banki hiteleket, és csak azt jelzi, ami a céged paramétereihez illik." }
+    ],
+    "agents": [
+      { "title": "Anna — az orchestrator", "body": "Egyetlen kapu, ami a többi ügynököt összehangolja. Minden user-akció mögött ő dönti el, melyik ügynök lép." },
+      { "title": "Sustainability ügynök", "body": "Heti pályázat-figyelés, határidő-követés és banki zöld-termék monitor — a fenntarthatósági háttérmunka, ami magától fut." },
+      { "title": "Reception ügynök", "body": "A platform hangos asszisztense. Visszaigazolja a feltöltésedet és elmagyarázza a következő lépést, mielőtt belekezdenél." },
+      { "title": "Security ügynök", "body": "Minden feltöltött fájlt ellenőriz, figyeli a rendellenes mintákat, és a céges adataidat pszeudonimizálva tárolja." },
+      { "title": "Personal ügynök", "body": "Napi áttekintést ad a platform állapotáról, és követi a határidőidet, hogy egyetlen jelentési dátumot se hagyj ki." },
+      { "title": "Client ügynök", "body": "A magasabb csomag onboarding-folyamatát viszi, és a zöld hitel-érdeklődést kezeli — emberi segítség, ha kell." }
+    ],
+    "terminalScript": [
+      { "type": "user", "text": "Feltöltöm a vevőtől kapott ESG-kérdőívet", "ms": 800 },
+      { "type": "cmd",  "text": "security — file scan (PDF, 1.2 MB)                         0.4s", "ms": 700 },
+      { "type": "cmd",  "text": "reception — visszaigazolás: kérdőív megérkezett            0.3s", "ms": 600 },
+      { "type": "cmd",  "text": "parse — Sonnet vision OCR → strukturált kérdéslista         1.2s", "ms": 900 },
+      { "type": "cmd",  "text": "map — céges profil + iparági benchmark join                0.6s", "ms": 700 },
+      { "type": "cmd",  "text": "generate — válaszok, magyar → angol fordítás                1.4s", "ms": 900 },
+      { "type": "cmd",  "text": "sustainability — VSME határidő felvéve a követésbe          0.4s", "ms": 700 },
+      { "type": "out",  "text": "", "ms": 200 },
+      { "type": "out",  "text": "Kész! A kitöltött kérdőív letölthető — eredeti formátumban.", "ms": 400 },
+      { "type": "out",  "text": "", "ms": 100 },
+      { "type": "out",  "text": "✓ 54 adatpont kitöltve a céges profilból", "ms": 300 },
+      { "type": "out",  "text": "✓ VSME-jelentés vázlat előkészítve", "ms": 300 },
+      { "type": "out",  "text": "✓ Pályázat-figyelő aktív — heti egy jelzés", "ms": 300 },
+      { "type": "out",  "text": "", "ms": 100 },
+      { "type": "done", "text": "A platform még épül — iratkozz fel a várólistára.", "ms": 200 }
+    ]
   }
 }
