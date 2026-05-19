@@ -731,7 +731,7 @@ main.shell {
   font-family: var(--font-mono);
   padding-bottom: env(safe-area-inset-bottom, 0);
 }
-.foot .label-sm.dim { opacity: 0.7; }
+.foot .label-sm.dim { opacity: 0.85; }
 .foot .accent { color: var(--accent); mix-blend-mode: plus-lighter; }
 
 /* ────────── Responsive ────────── */
